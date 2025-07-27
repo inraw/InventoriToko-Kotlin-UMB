@@ -14,14 +14,14 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager // Import GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ahmar.inventorytokokotlinumb.adapters.ProductAdapter
 import com.ahmar.inventorytokokotlinumb.models.Product
 import com.ahmar.inventorytokokotlinumb.network.RetrofitClient
 import com.ahmar.inventorytokokotlinumb.viewmodels.ProductViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import android.util.Log
+import android.util.Log // Import Log
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var productsRecyclerView: RecyclerView
     private lateinit var loadingProgressBar: ProgressBar
     private lateinit var fabCart: FloatingActionButton
-    private lateinit var userManagementButton: Button // Tombol baru
+    private lateinit var userManagementButton: Button
 
     private lateinit var productAdapter: ProductAdapter
     private val productViewModel: ProductViewModel by viewModels()
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         productsRecyclerView = findViewById(R.id.productsRecyclerView)
         loadingProgressBar = findViewById(R.id.loadingProgressBar)
         fabCart = findViewById(R.id.fabCart)
-        userManagementButton = findViewById(R.id.userManagementButton) // Inisialisasi tombol baru
+        userManagementButton = findViewById(R.id.userManagementButton)
 
         // Dapatkan peran pengguna dari SharedPreferences
         val sharedPref = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
@@ -64,9 +64,13 @@ class MainActivity : AppCompatActivity() {
 
         // PENTING: Set ulang token di RetrofitClient saat MainActivity dibuat
         val storedAuthToken = sharedPref.getString("auth_token", null)
+
+        // LOGGING: Periksa apakah token berhasil dimuat
+        Log.d(TAG, "onCreate: Stored Auth Token from SharedPreferences: ${storedAuthToken?.take(10)}...") // Log 10 karakter pertama
+
         if (storedAuthToken != null) {
             RetrofitClient.setAuthToken(storedAuthToken)
-            Log.d(TAG, "onCreate: RetrofitClient authToken set from SharedPreferences: $storedAuthToken")
+            Log.d(TAG, "onCreate: RetrofitClient authToken set from SharedPreferences.")
         } else {
             Log.w(TAG, "onCreate: No auth token found in SharedPreferences for MainActivity. Redirecting to LoginActivity.")
             val intent = Intent(this, LoginActivity::class.java)
@@ -80,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         userRoleTextView.text = "Anda login sebagai: $currentUserRole"
 
         // Setup RecyclerView
-        productsRecyclerView.layoutManager = LinearLayoutManager(this)
+        productsRecyclerView.layoutManager = GridLayoutManager(this, 2)
         productAdapter = ProductAdapter(
             products = mutableListOf(),
             userRole = currentUserRole,
@@ -121,6 +125,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Muat produk saat Activity dibuat
+        Log.d(TAG, "onCreate: Calling productViewModel.loadProducts()")
         productViewModel.loadProducts(currentUserRole)
 
         // Atur FAB berdasarkan peran
@@ -130,21 +135,23 @@ class MainActivity : AppCompatActivity() {
             performLogout()
         }
 
-        // Tampilkan/sembunyikan tombol riwayat pembelian berdasarkan peran
+        // Tampilkan/sembunyikan dan atur teks tombol riwayat pembelian berdasarkan peran
         if (currentUserRole == "customer") {
             purchasesHistoryButton.visibility = View.VISIBLE
+            purchasesHistoryButton.text = "Riwayat Pembelian"
             purchasesHistoryButton.setOnClickListener {
                 val intent = Intent(this, PurchaseHistoryActivity::class.java)
                 startActivity(intent)
             }
-            userManagementButton.visibility = View.GONE // Sembunyikan untuk customer
+            userManagementButton.visibility = View.GONE
         } else if (currentUserRole == "admin") {
-            purchasesHistoryButton.visibility = View.VISIBLE // Admin juga bisa lihat riwayat pembelian
+            purchasesHistoryButton.visibility = View.VISIBLE
+            purchasesHistoryButton.text = "Produk Terjual"
             purchasesHistoryButton.setOnClickListener {
                 val intent = Intent(this, PurchaseHistoryActivity::class.java)
                 startActivity(intent)
             }
-            userManagementButton.visibility = View.VISIBLE // Tampilkan untuk admin
+            userManagementButton.visibility = View.VISIBLE
             userManagementButton.setOnClickListener {
                 val intent = Intent(this, UserManagementActivity::class.java)
                 startActivity(intent)
@@ -157,6 +164,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        Log.d(TAG, "onResume: Calling productViewModel.loadProducts()")
         productViewModel.loadProducts(currentUserRole)
     }
 

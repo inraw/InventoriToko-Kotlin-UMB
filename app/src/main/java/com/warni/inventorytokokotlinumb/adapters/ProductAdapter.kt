@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton // Import ImageButton
+import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout // Import LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -20,7 +21,7 @@ class ProductAdapter(
     private val userRole: String,
     private val onAddToCartClick: (Product) -> Unit,
     private val onEditClick: (Product) -> Unit,
-    private val onDeleteClick: (Product) -> Unit // Lambda untuk delete
+    private val onDeleteClick: (Product) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -29,8 +30,9 @@ class ProductAdapter(
         val productPriceTextView: TextView = itemView.findViewById(R.id.productPriceTextView)
         val productStockTextView: TextView = itemView.findViewById(R.id.productStockTextView)
         val addToCartButton: Button = itemView.findViewById(R.id.addToCartButton)
-        val editProductButton: ImageButton = itemView.findViewById(R.id.editProductButton) // Ubah ke ImageButton
-        val deleteProductButton: ImageButton = itemView.findViewById(R.id.deleteProductButton) // Ubah ke ImageButton
+        val adminButtonsLayout: LinearLayout = itemView.findViewById(R.id.adminButtonsLayout) // Inisialisasi LinearLayout
+        val editProductButton: ImageButton = itemView.findViewById(R.id.editProductButton)
+        val deleteProductButton: ImageButton = itemView.findViewById(R.id.deleteProductButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -42,42 +44,37 @@ class ProductAdapter(
         val product = products[position]
         holder.productNameTextView.text = product.name
 
-        val format = NumberFormat.getCurrencyInstance(Locale("id", "ID")) // Format Rupiah Indonesia
+        val format = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
         holder.productPriceTextView.text = "Harga: ${format.format(product.price)}"
         holder.productStockTextView.text = "Stok: ${product.stock}"
 
-        // Muat gambar produk dari URL menggunakan Glide
         product.imageUrl?.let { url ->
             Glide.with(holder.itemView.context)
                 .load(url)
-                .placeholder(R.drawable.ic_launcher_background) // Gambar placeholder saat loading
-                .error(R.drawable.ic_launcher_background) // Gambar jika terjadi error
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
                 .into(holder.productImageView)
-        } ?: holder.productImageView.setImageResource(R.drawable.ic_launcher_background) // Jika URL null
+        } ?: holder.productImageView.setImageResource(R.drawable.ic_launcher_background)
 
         // Atur visibilitas tombol berdasarkan peran pengguna
         if (userRole == "customer") {
             holder.addToCartButton.visibility = View.VISIBLE
-            holder.editProductButton.visibility = View.GONE
-            holder.deleteProductButton.visibility = View.GONE // Sembunyikan untuk customer
+            holder.adminButtonsLayout.visibility = View.GONE // Sembunyikan layout admin
             holder.addToCartButton.setOnClickListener {
                 onAddToCartClick(product)
             }
         } else if (userRole == "admin") {
             holder.addToCartButton.visibility = View.GONE
-            holder.editProductButton.visibility = View.VISIBLE
-            holder.deleteProductButton.visibility = View.VISIBLE // Tampilkan untuk admin
+            holder.adminButtonsLayout.visibility = View.VISIBLE // Tampilkan layout admin
             holder.editProductButton.setOnClickListener {
                 onEditClick(product)
             }
-            holder.deleteProductButton.setOnClickListener { // Atur listener untuk tombol hapus
+            holder.deleteProductButton.setOnClickListener {
                 onDeleteClick(product)
             }
         } else {
-            // Sembunyikan semua tombol jika peran tidak dikenal atau tidak ada
             holder.addToCartButton.visibility = View.GONE
-            holder.editProductButton.visibility = View.GONE
-            holder.deleteProductButton.visibility = View.GONE
+            holder.adminButtonsLayout.visibility = View.GONE
         }
     }
 
