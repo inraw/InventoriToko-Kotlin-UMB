@@ -24,7 +24,7 @@ Aplikasi ini menyediakan fitur-fitur utama sebagai berikut:
 
 Berikut adalah gambaran alur kerja utama aplikasi:
 
-* **Register**.
+* **Register**
 
 <img src="https://github.com/inraw/InventoriToko-Kotlin-UMB/blob/master/image/register.drawio.png" alt="Flowchart Register" width="400">
 
