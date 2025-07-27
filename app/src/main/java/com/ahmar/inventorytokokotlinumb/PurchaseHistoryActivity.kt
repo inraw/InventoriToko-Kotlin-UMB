@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ahmar.inventorytokokotlinumb.adapters.PurchaseHistoryAdapter
 import com.ahmar.inventorytokokotlinumb.viewmodels.PurchaseHistoryViewModel
-import com.ahmar.inventorytokokotlinumb.models.Purchase // Pastikan ini diimpor dengan package yang benar
+import com.ahmar.inventorytokokotlinumb.models.Purchase
 
 class PurchaseHistoryActivity : AppCompatActivity() {
 
@@ -31,25 +31,30 @@ class PurchaseHistoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_purchase_history)
 
         // Setup ActionBar
-        supportActionBar?.title = "Riwayat Pembelian"
+        // Dapatkan peran pengguna dari SharedPreferences terlebih dahulu
+        val sharedPref = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        currentUserRole = sharedPref.getString("user_role", "customer") ?: "customer"
+
+        // Atur judul ActionBar berdasarkan peran
+        supportActionBar?.title = if (currentUserRole == "admin") {
+            "Produk Terjual"
+        } else {
+            "Riwayat Pembelian"
+        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true) // Tombol kembali
+
 
         // Inisialisasi View
         purchasesRecyclerView = findViewById(R.id.purchasesRecyclerView)
         loadingProgressBar = findViewById(R.id.loadingProgressBar)
         emptyHistoryTextView = findViewById(R.id.emptyHistoryTextView)
 
-        // Dapatkan peran pengguna dari SharedPreferences
-        val sharedPref = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        currentUserRole = sharedPref.getString("user_role", "customer") ?: "customer"
-
         // Setup RecyclerView
-        purchasesRecyclerView.layoutManager = LinearLayoutManager(this)
+        purchasesRecyclerView.layoutManager = LinearLayoutManager(this) // Mengoreksi nama variabel
         purchaseHistoryAdapter = PurchaseHistoryAdapter(mutableListOf())
         purchasesRecyclerView.adapter = purchaseHistoryAdapter
 
         // Observasi LiveData dari ViewModel
-        // Explicitly specify the type of 'purchases' parameter
         purchaseHistoryViewModel.purchases.observe(this) { purchases: List<Purchase>? ->
             purchases?.let {
                 purchaseHistoryAdapter.updatePurchases(it)
