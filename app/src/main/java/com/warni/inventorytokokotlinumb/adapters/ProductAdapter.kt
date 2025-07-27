@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/adapters/ProductAdapter.kt
-package com.ahmar.inventorytokokotlinumb.adapters
+package com.warni.inventorytokokotlinumb.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +11,8 @@ import android.widget.LinearLayout // Import LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.ahmar.inventorytokokotlinumb.R
-import com.ahmar.inventorytokokotlinumb.models.Product
+import com.warni.inventorytokokotlinumb.R
+import com.warni.inventorytokokotlinumb.models.Product
 import java.text.NumberFormat
 import java.util.Locale
 

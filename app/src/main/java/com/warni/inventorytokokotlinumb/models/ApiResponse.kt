@@ -1,4 +1,4 @@
-package com.ahmar.inventorytokokotlinumb.models
+package com.warni.inventorytokokotlinumb.models
 
 import com.google.gson.annotations.SerializedName
 

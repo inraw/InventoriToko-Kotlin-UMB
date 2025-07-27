@@ -1,4 +1,4 @@
-package com.ahmar.inventorytokokotlinumb.models
+package com.warni.inventorytokokotlinumb.models
 
 data class AddCartRequest(
     val productId: Int,

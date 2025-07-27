@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/EditProductDialogFragment.kt
-package com.ahmar.inventorytokokotlinumb
+package com.warni.inventorytokokotlinumb
 
 import android.app.Dialog
 import android.os.Bundle
@@ -11,8 +11,8 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import com.ahmar.inventorytokokotlinumb.models.Product
-import com.ahmar.inventorytokokotlinumb.viewmodels.ProductViewModel
+import com.warni.inventorytokokotlinumb.models.Product
+import com.warni.inventorytokokotlinumb.viewmodels.ProductViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 

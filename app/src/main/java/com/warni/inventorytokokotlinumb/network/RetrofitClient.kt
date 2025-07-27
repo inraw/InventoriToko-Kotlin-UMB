@@ -1,7 +1,7 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/network/RetrofitClient.kt
-package com.ahmar.inventorytokokotlinumb.network
+package com.warni.inventorytokokotlinumb.network
 
-import com.ahmar.inventorytokokotlinumb.api.ApiService // Pastikan ini mengarah ke ApiService Anda
+import com.warni.inventorytokokotlinumb.api.ApiService // Pastikan ini mengarah ke ApiService Anda
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

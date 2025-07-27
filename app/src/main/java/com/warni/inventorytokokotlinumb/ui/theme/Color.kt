@@ -1,4 +1,4 @@
-package com.ahmar.inventorytokokotlinumb.ui.theme
+package com.warni.inventorytokokotlinumb.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

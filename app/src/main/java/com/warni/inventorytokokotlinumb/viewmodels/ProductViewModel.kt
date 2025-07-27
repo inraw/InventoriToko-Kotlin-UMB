@@ -1,15 +1,15 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/viewmodels/ProductViewModel.kt
-package com.ahmar.inventorytokokotlinumb.viewmodels
+package com.warni.inventorytokokotlinumb.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ahmar.inventorytokokotlinumb.models.Product
-import com.ahmar.inventorytokokotlinumb.network.RetrofitClient
+import com.warni.inventorytokokotlinumb.models.Product
+import com.warni.inventorytokokotlinumb.network.RetrofitClient
 import kotlinx.coroutines.launch
-import com.ahmar.inventorytokokotlinumb.models.AddToCartRequest
+import com.warni.inventorytokokotlinumb.models.AddToCartRequest
 
 class ProductViewModel : ViewModel() {
 

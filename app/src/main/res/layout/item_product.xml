@@ -5,66 +5,68 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="12dp"
     app:cardElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/productImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/productNameTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@android:color/black"
-            app:layout_constraintStart_toEndOf="@id/productImageView"
-            app:layout_constraintTop_toTopOf="parent"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Nama Produk" />
+            app:layout_constraintTop_toBottomOf="@id/productImageView"
+            tools:text="Nama Produk yang Sangat Panjang dan Mungkin Terpotong" />
 
         <TextView
             android:id="@+id/productPriceTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="@color/purple_700"
-            app:layout_constraintStart_toEndOf="@id/productImageView"
-            app:layout_constraintTop_toBottomOf="@id/productNameTextView"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/productNameTextView"
             tools:text="Harga: Rp 1.500.000" />
 
         <TextView
             android:id="@+id/productStockTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="@android:color/darker_gray"
-            app:layout_constraintStart_toEndOf="@id/productImageView"
-            app:layout_constraintTop_toBottomOf="@id/productPriceTextView"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/productPriceTextView"
             tools:text="Stok: 10" />
 
+        <!-- Tombol untuk Customer -->
         <Button
             android:id="@+id/addToCartButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Tambah ke Keranjang"
@@ -72,36 +74,42 @@
             android:textColor="@android:color/white"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/productStockTextView"
-            app:layout_constraintStart_toStartOf="@id/productNameTextView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cornerRadius="8dp" />
 
-        <!-- ImageButton untuk Edit Produk -->
-        <ImageButton
-            android:id="@+id/editProductButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+        <!-- Container untuk Tombol Admin (Edit dan Hapus) -->
+        <LinearLayout
+            android:id="@+id/adminButtonsLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Edit Produk"
-            android:src="@drawable/ic_edit"
-            android:tint="@color/purple_500"
+            android:gravity="center"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/productStockTextView"
-            app:layout_constraintStart_toStartOf="@id/productNameTextView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- ImageButton untuk Hapus Produk -->
-        <ImageButton
-            android:id="@+id/deleteProductButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Hapus Produk"
-            android:src="@drawable/ic_delete"
-            android:tint="@android:color/holo_red_dark"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/productStockTextView"
-            app:layout_constraintStart_toEndOf="@id/editProductButton" />
+            <ImageButton
+                android:id="@+id/editProductButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Edit Produk"
+                android:src="@drawable/ic_edit"
+                android:tint="@color/purple_500" />
+
+            <ImageButton
+                android:id="@+id/deleteProductButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Hapus Produk"
+                android:src="@drawable/ic_delete"
+                android:tint="@android:color/holo_red_dark" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

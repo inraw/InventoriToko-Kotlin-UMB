@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/LoginActivity.kt
-package com.ahmar.inventorytokokotlinumb
+package com.warni.inventorytokokotlinumb
 
 import android.content.Context
 import android.content.Intent
@@ -10,8 +10,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.ahmar.inventorytokokotlinumb.models.LoginRequest
-import com.ahmar.inventorytokokotlinumb.network.RetrofitClient
+import com.warni.inventorytokokotlinumb.models.LoginRequest
+import com.warni.inventorytokokotlinumb.network.RetrofitClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

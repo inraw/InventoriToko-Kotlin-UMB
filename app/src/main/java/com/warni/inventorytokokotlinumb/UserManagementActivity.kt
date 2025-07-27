@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/UserManagementActivity.kt
-package com.ahmar.inventorytokokotlinumb
+package com.warni.inventorytokokotlinumb
 
 import android.os.Bundle
 import android.view.View
@@ -11,9 +11,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ahmar.inventorytokokotlinumb.adapters.UserAdapter
-import com.ahmar.inventorytokokotlinumb.models.User
-import com.ahmar.inventorytokokotlinumb.viewmodels.UserViewModel
+import com.warni.inventorytokokotlinumb.adapters.UserAdapter
+import com.warni.inventorytokokotlinumb.models.User
+import com.warni.inventorytokokotlinumb.viewmodels.UserViewModel
 
 class UserManagementActivity : AppCompatActivity() {
 

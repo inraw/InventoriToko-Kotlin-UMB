@@ -1,7 +1,7 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/network/ApiService.kt
-package com.ahmar.inventorytokokotlinumb.api
+package com.warni.inventorytokokotlinumb.api
 
-import com.ahmar.inventorytokokotlinumb.models.*
+import com.warni.inventorytokokotlinumb.models.*
 import retrofit2.Response
 import retrofit2.http.*
 

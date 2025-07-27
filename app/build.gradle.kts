@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ahmar.inventorytokokotlinumb"
+    namespace = "com.warni.inventorytokokotlinumb"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.ahmar.inventorytokokotlinumb"
+        applicationId = "com.warni.inventorytokokotlinumb"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

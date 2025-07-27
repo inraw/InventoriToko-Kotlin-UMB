@@ -1,5 +1,5 @@
-// File: app/src/main/java/com/example/inventorytokokotlinumb/CartActivity.kt
-package com.ahmar.inventorytokokotlinumb
+// File: app/src/main/java/com/warni/inventorytokokotlinumb/CartActivity.kt
+package com.warni.inventorytokokotlinumb // Ubah package ini
 
 import android.content.Context
 import android.os.Bundle
@@ -13,9 +13,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ahmar.inventorytokokotlinumb.adapters.CartAdapter
-import com.ahmar.inventorytokokotlinumb.network.RetrofitClient
-import com.ahmar.inventorytokokotlinumb.viewmodels.CartViewModel
+import com.warni.inventorytokokotlinumb.adapters.CartAdapter // Sesuaikan import
+import com.warni.inventorytokokotlinumb.network.RetrofitClient // Sesuaikan import
+import com.warni.inventorytokokotlinumb.viewmodels.CartViewModel // Sesuaikan import
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -73,21 +73,16 @@ class CartActivity : AppCompatActivity() {
         cartViewModel.errorMessage.observe(this) { message ->
             message?.let {
                 Toast.makeText(this, it, Toast.LENGTH_LONG).show()
-                cartViewModel.clearErrorMessage() // Bersihkan pesan setelah ditampilkan
-                // Jika pesan error bukan dari pembelian/penghapusan yang gagal,
-                // atau jika itu adalah pesan sukses penghapusan, muat ulang keranjang.
-                // Kita bisa lebih spesifik di sini jika perlu, tapi untuk saat ini,
-                // setiap kali ada pesan, kita coba muat ulang.
-                loadCartItems() // PENTING: Muat ulang keranjang setelah ada pesan (termasuk sukses delete)
+                cartViewModel.clearErrorMessage()
+                loadCartItems() // Muat ulang keranjang setelah ada pesan (termasuk sukses delete)
             }
         }
 
         cartViewModel.purchaseSuccess.observe(this) { isSuccess ->
             if (isSuccess) {
                 Toast.makeText(this, "Pembelian berhasil!", Toast.LENGTH_LONG).show()
-                // Setelah pembelian berhasil, muat ulang keranjang (seharusnya kosong)
-                loadCartItems() // PENTING: Muat ulang keranjang setelah pembelian berhasil
-                cartViewModel.clearPurchaseSuccess() // Bersihkan status
+                loadCartItems()
+                cartViewModel.clearPurchaseSuccess()
             }
         }
 
@@ -96,7 +91,7 @@ class CartActivity : AppCompatActivity() {
         }
 
         // Muat item keranjang saat Activity dibuat
-        loadCartItems() // Panggil fungsi pembantu untuk memuat keranjang
+        loadCartItems()
     }
 
     // Handle tombol kembali di ActionBar
@@ -105,17 +100,12 @@ class CartActivity : AppCompatActivity() {
         return true
     }
 
-    // Fungsi pembantu untuk mendapatkan userId dan memuat item keranjang
     private fun loadCartItems() {
         val userId = getUserId()
         if (userId != -1) {
             cartViewModel.loadCartItems(userId)
         } else {
             Toast.makeText(this, "User ID tidak ditemukan. Harap login kembali.", Toast.LENGTH_LONG).show()
-            // Opsional: Arahkan kembali ke LoginActivity jika userId tidak valid
-            // val intent = Intent(this, LoginActivity::class.java)
-            // startActivity(intent)
-            // finish()
         }
     }
 
@@ -125,7 +115,7 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun updateTotal(total: Double) {
-        val format = NumberFormat.getCurrencyInstance(Locale("id", "ID")) // Format Rupiah Indonesia
+        val format = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
         totalTextView.text = "Total: ${format.format(total)}"
     }
 

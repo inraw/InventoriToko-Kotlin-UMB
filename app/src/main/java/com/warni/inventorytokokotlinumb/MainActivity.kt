@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/MainActivity.kt
-package com.ahmar.inventorytokokotlinumb
+package com.warni.inventorytokokotlinumb
 
 import android.content.Context
 import android.content.Intent
@@ -16,10 +16,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager // Import GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ahmar.inventorytokokotlinumb.adapters.ProductAdapter
-import com.ahmar.inventorytokokotlinumb.models.Product
-import com.ahmar.inventorytokokotlinumb.network.RetrofitClient
-import com.ahmar.inventorytokokotlinumb.viewmodels.ProductViewModel
+import com.warni.inventorytokokotlinumb.adapters.ProductAdapter
+import com.warni.inventorytokokotlinumb.models.Product
+import com.warni.inventorytokokotlinumb.network.RetrofitClient
+import com.warni.inventorytokokotlinumb.viewmodels.ProductViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.util.Log // Import Log
 

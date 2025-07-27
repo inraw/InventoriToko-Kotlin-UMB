@@ -1,4 +1,4 @@
-package com.ahmar.inventorytokokotlinumb
+package com.warni.inventorytokokotlinumb
 
 import org.junit.Test
 

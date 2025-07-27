@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/adapters/CartAdapter.kt
-package com.ahmar.inventorytokokotlinumb.adapters
+package com.warni.inventorytokokotlinumb.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ahmar.inventorytokokotlinumb.R
-import com.ahmar.inventorytokokotlinumb.models.CartItem
+import com.warni.inventorytokokotlinumb.R
+import com.warni.inventorytokokotlinumb.models.CartItem
 import java.text.NumberFormat
 import java.util.Locale
 

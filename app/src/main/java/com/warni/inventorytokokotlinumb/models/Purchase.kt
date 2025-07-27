@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/example/inventorytokokotlinumb/models/Purchase.kt
-package com.ahmar.inventorytokokotlinumb.models
+package com.warni.inventorytokokotlinumb.models
 
 import com.google.gson.annotations.SerializedName
 import android.os.Parcelable

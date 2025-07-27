@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/ahmar/inventorytokokotlinumb/PurchaseHistoryActivity.kt
-package com.ahmar.inventorytokokotlinumb
+package com.warni.inventorytokokotlinumb
 
 import android.content.Context
 import android.os.Bundle
@@ -11,9 +11,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ahmar.inventorytokokotlinumb.adapters.PurchaseHistoryAdapter
-import com.ahmar.inventorytokokotlinumb.viewmodels.PurchaseHistoryViewModel
-import com.ahmar.inventorytokokotlinumb.models.Purchase
+import com.warni.inventorytokokotlinumb.adapters.PurchaseHistoryAdapter
+import com.warni.inventorytokokotlinumb.viewmodels.PurchaseHistoryViewModel
+import com.warni.inventorytokokotlinumb.models.Purchase
 
 class PurchaseHistoryActivity : AppCompatActivity() {
 

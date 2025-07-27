@@ -1,5 +1,5 @@
 // File: app/src/main/java/com/example/inventorytokokotlinumb/RegisterActivity.kt
-package com.ahmar.inventorytokokotlinumb
+package com.warni.inventorytokokotlinumb
 
 import android.os.Bundle
 import android.view.View
@@ -8,8 +8,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.ahmar.inventorytokokotlinumb.models.RegisterRequest
-import com.ahmar.inventorytokokotlinumb.network.RetrofitClient
+import com.warni.inventorytokokotlinumb.models.RegisterRequest
+import com.warni.inventorytokokotlinumb.network.RetrofitClient
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -74,7 +74,7 @@ class RegisterActivity : AppCompatActivity() {
                         val errorMessage = try {
                             // Try to parse the error body as JSON to get the error message from the backend
                             // This requires Gson on the client side for JSON parsing
-                            val errorResponse = com.google.gson.Gson().fromJson(errorBody, com.ahmar.inventorytokokotlinumb.models.ApiResponse::class.java)
+                            val errorResponse = com.google.gson.Gson().fromJson(errorBody, com.warni.inventorytokokotlinumb.models.ApiResponse::class.java)
                             errorResponse?.message ?: "Registration failed: ${response.code()}"
                         } catch (e: Exception) {
                             "Registration failed: ${response.code()} - ${errorBody}"
