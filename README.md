@@ -27,8 +27,10 @@ Berikut adalah gambaran alur kerja utama aplikasi:
 * **Register**.
 
 <img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/register.drawio.png" alt="Flowchart Register" width="600">
+
 * **Customer**.
 <img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/customer.drawio.png" alt="Flowchart Customer" width="600">
+
 * **Admin**.
 <img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/admin.png" alt="Flowchart Admin" width="600">
 
