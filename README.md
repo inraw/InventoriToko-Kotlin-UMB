@@ -25,42 +25,43 @@ Aplikasi ini menyediakan fitur-fitur utama sebagai berikut:
 Berikut adalah gambaran alur kerja utama aplikasi:
 
 * **Register**.
-![Flowchart Register](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/register.drawio.png)
+
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/register.drawio.png" alt="Flowchart Register" width="600">
 * **Customer**.
-![Flowchart Customer](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/customer.drawio.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/customer.drawio.png" alt="Flowchart Customer" width="600">
 * **Admin**.
-![Flowchart Admin](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/admin.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/admin.png" alt="Flowchart Admin" width="600">
 
 ## UI Aplikasi
 
 Berikut adalah User Interface aplikasi:
 
 * **Halaman Login**.
-![Halaman Login](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/login.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/login.png" alt="Halaman Login" width="400">
 
 * **Halaman register**.
-![Halaman Register](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/register.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/register.png" alt="Halaman Register" width="400">
 
 * **Halaman Customer**.
-![Halaman customer](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/customer.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/customer.png" alt="Halaman Customer" width="400">
 
 * **Halaman Keranjang Customer**.
-![Halaman kerangjang customer](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/keranjang_customer.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/keranjang_customer.png" alt="Halaman Keranjang Customer" width="400">
 
 * **Halaman Riwayat Pembelian Customer**.
-![Halaman riwayat_customer](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/riwayat_customer.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/riwayat_customer.png" alt="Halaman Riwayat Pembelian Customer" width="400">
 
 * **Halaman Admin**.
-![Halaman admin_page](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/admin_page.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/admin_page.png" alt="Halaman Admin" width="400">
 
 * **Halaman Manajemen User**.
-![Halaman user_admin](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/user_admin.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/user_admin.png" alt="Halaman Manajemen User" width="400">
 
 * **Halaman Form Produk**.
-![Halaman form_admin](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/form_admin.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/form_admin.png" alt="Halaman Form Produk" width="400">
 
 ## Hasil Uji di Emulator
 
-![Halaman hasil](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/hasil1.png)
-![Halaman hasil](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/hasil2.png)
-![Halaman hasil](https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/hasil3.png)
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/hasil1.png" alt="Hasil Uji Emulator 1" width="600">
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/hasil2.png" alt="Hasil Uji Emulator 2" width="600">
+<img src="https://github.com/RamziAhmar2/InventoriToko-Kotlin-UMB/blob/master/image/hasil3.png" alt="Hasil Uji Emulator 3" width="600">
