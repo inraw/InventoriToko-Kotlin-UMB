@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!--
+    Ini adalah file konfigurasi untuk Android Auto Backup.
+    Secara default, ini akan mencakup semua file yang disimpan di direktori data aplikasi Anda
+    dan preferensi bersama (SharedPreferences).
+
+    Jika Anda ingin mengecualikan sesuatu, Anda bisa menambahkannya di sini.
+    Contoh:
+    <exclude domain="sharedpref" path="my_sensitive_data.xml"/>
+    <exclude domain="database" path="my_large_database.db"/>
+    -->
+</full-backup-content>
